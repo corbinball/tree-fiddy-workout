@@ -32,6 +32,17 @@ router.post("/api/workouts", ({ body }, res) => {
     });
 });
 
+router.put("/api/workouts/:id", ({ body }, res) => {
+    workout.findByIdAndUpdate(
+        {_id: body.params.id}, {exercise: body})
+    .then(dbworkout => {
+      res.json(dbworkout);
+    })
+    .catch(err => {
+      res.status(400).json(err);
+    });
+});
+
 
 
 
