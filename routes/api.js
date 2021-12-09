@@ -12,7 +12,15 @@ router.get("/api/workouts", (req, res) => {
     });
 });
 
-
+router.get("/api/workouts/range", (req, res) => {
+    workout.find({})
+    .then(dbworkout => {
+      res.json(dbworkout);
+    })
+    .catch(err => {
+      res.status(400).json(err);
+    });
+});
 
 router.post("/api/workouts", ({ body }, res) => {
     workout.create(body)
