@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const WorkoutSchema = new Schema({
+    exercises: [{
     type: {
       type: String,
       trim: true,
@@ -35,6 +36,7 @@ const WorkoutSchema = new Schema({
       type: Number,
       required: "Enter duration"
     },
+    }],
     date: {
       type: Date,
       default: Date.now
