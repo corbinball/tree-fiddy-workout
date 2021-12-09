@@ -3,16 +3,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-  firstName: {
+  NamedNodeMap: {
     type: String,
     trim: true,
-    required: "First Name is Required"
-  },
-
-  lastName: {
-    type: String,
-    trim: true,
-    required: "Last Name is Required"
+    required: "Name is Required"
   },
 
   username: {
@@ -41,14 +35,8 @@ const UserSchema = new Schema({
 
   lastUpdated: Date,
 
-  fullName: String
 });
 
-UserSchema.methods.setFullName = function() {
-  this.fullName = `${this.firstName} ${this.lastName}`;
-
-  return this.fullName;
-};
 
 UserSchema.methods.lastUpdatedDate = function() {
   this.lastUpdated = Date.now();
