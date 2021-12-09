@@ -7,25 +7,33 @@ const WorkoutSchema = new Schema({
       type: String,
       trim: true,
       required: "Enter a workout type",
-      weight: Number,
-      reps: Number,
-      sets: Number,
+   
 
-
-    //   type: "cardio",
-    //   trim: true,
-    //   required: "Enter a workout type",
-    //   distance: Number,
-      
     },
     name: {
       type: String,
       trim: true,
       required: "Enter a workout"
     },
+    weight: {
+      type: Number,
+      required: "Enter weight"
+    }, 
+    reps: {
+        type: Number,
+        required: "Enter reps"
+      }, 
+    sets: {
+        type: Number,
+        required: "Enter sets"
+      }, 
+    distance: {
+        type: Number,
+        required: "Enter disantce"
+      }, 
     duration: {
       type: Number,
-      required: "Enter an amount"
+      required: "Enter duration"
     },
     date: {
       type: Date,
