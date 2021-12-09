@@ -12,9 +12,9 @@ router.get("/api/workouts", (req, res) => {
     });
 });
 
-router.get("/api/workouts/range", (req, res) => {
+router.get("/api/workouts/range", ({}, res) => {
     workout.find({})
-    .then(dbworkout => {
+    .then((dbworkout) => {
       res.json(dbworkout);
     })
     .catch(err => {
