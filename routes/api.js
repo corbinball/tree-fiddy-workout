@@ -6,6 +6,11 @@ router.get("/api/workouts", (req, res) => {
     Workout.aggregate([
       {$addFields: {
         totalDuration: {$sum: '$exercises.duration'},
+        totalWeight: {$sum: '$exercises.weight'},
+        totalSets: {$sum: '$exercises.sets'},
+        totalReps: {$sum: '$exercises.reps'},
+        totalDistance: {$sum: '$exercises.distance'},
+        numExercises: {$sum: '$exercises.type'}
       }
       }
     ])
