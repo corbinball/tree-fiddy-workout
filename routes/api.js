@@ -4,6 +4,7 @@ const Workout = require("../models/Workout.js");
 
 router.get("/api/workouts", (req, res) => {
     Workout.aggregate([
+      //date, 
       {$addFields: {
         totalDuration: {$sum: '$exercises.duration'},
         totalWeight: {$sum: '$exercises.weight'},
@@ -34,7 +35,7 @@ router.get("/api/workouts/range", ({}, res) => {
       }
     }
     ])
-    .sort({date: 1 })
+    .sort({day: 1 })
     .limit(8)
     .then((dbworkout) => {
       res.json(dbworkout);
